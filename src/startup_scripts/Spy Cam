@@ -1,0 +1,19 @@
+Spycam stuff:
+Follow the instructions for the webcam 
+When you get to step 9, type http://linky.local:8080/?action=stream and you should get a display
+Optional : Then in your terminal type in “sudo apt-get install vim”
+Sudo vi /etc/profile.d/”yourscript”.sh
+Write: 
+#!/bin/bash
+cd /home/pi/projects/mjpg-streamer/mjpg-streamer-experimental
+sudo ./mjpg-streamer -o “output_http.so -w ./www” -i “input_raspicam.so -hf”
+sudo chmod +x /etc/profile.d/”yourscript”.sh
+“sudo reboot now” it will automatically run after login
+
+Tip : if you wanna kill(stop) program use “ps -aux | grep mjpg-streamer” to see pid id. 
+Should look like: root            841 6.8 0.6…
+(the position of 841 is your PID #)
+ “sudo kill -9 “PID #” ” kill ( kill second one)
+
+How to run manually:
+Problem: It will run after logged in and also if you use ssh, you have to turn off streaming before you do something
